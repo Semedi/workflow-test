@@ -1,0 +1,20 @@
+on:
+  workflow_call:
+    inputs:
+      appname:
+        required: true
+        type: string
+      company:
+        required: true
+        type: string
+
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "tags = {"  > terraform.tfvars
+          echo "  \"company\" = \"${{ inputs.company }}\"" >> terraform.tfvars
+          echo "  \"appname\" = \"${{ inputs.appname }}\"" >> terraform.tfvars
+          echo "}" >> test.tfvars
