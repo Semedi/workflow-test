@@ -18,3 +18,5 @@ jobs:
           echo "  \"company\" = \"${{ inputs.company }}\"" >> terraform.tfvars
           echo "  \"appname\" = \"${{ inputs.appname }}\"" >> terraform.tfvars
           echo "}" >> test.tfvars
+      - run: cat test.tfvars
+      - run: echo $GITHUB_REPOSITORY
